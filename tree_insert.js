@@ -1,12 +1,13 @@
 class Tree {
-    constructor(value) {
-        this.value = value;
-        this.children = [];
+    constructor(question) {
+        this.question = question;
+        this.yes = null;
+        this.no = null;
     }
-    insertChild(value) {
-        const newTree = new Tree(value); // {2}
-        this.children.push(newTree);
-        return newTree;
+    insertChild(question, side) {
+        const newQuestion = new Tree(question); // {2}
+        this[side] = newQuestion;
+        return newQuestion;
     }
 
     // Uses a Depth-First Traversal
@@ -25,13 +26,7 @@ class Tree {
     reorder(node1, node2) {}
 }
 
-const myTree1 = new Tree(1);
-myTree1.insertChild(2);
+const myTree1 = new Tree('You like Cricket');
+myTree1.insertChild('Does cricket have 11 players per side. ', 'yes');
 
 console.log(myTree1);
-// {
-//     value: 1,
-//     children: []
-// }
-
-// export default Tree;
