@@ -10,19 +10,12 @@ function traverse(tree) {
 }
 
 /*
-const family = {
+const mother = { name: 'Ashleigh' };
+const son = { name: 'Sammy' };
+const daughter = { name: 'Alex' };
+
+const mother = {
     name: 'Ashleigh',
-    children: [
-        {
-            name: 'Sammy',
-            children: [
-                {
-                    name: 'Bowser',
-                    children: [{ name: 'P' }],
-                },
-            ],
-        },
-        { name: 'Alex' },
-    ],
+    children: [son, daughter],
 };
 */
