@@ -38,26 +38,75 @@ class BinaryTree {
     }
 
     countReccos(node) {
-        if (node === null) {return 0;}
+        if (node === null) {
+            return 0;
+        }
         if (!node.yes && !node.no) {
             return 1;
         }
 
-        return (countReccos(node.yes)) +
-        (countReccos(node.no));
-
+        return countReccos(node.yes) + countReccos(node.no);
     }
 
     contains(question) {
         if (this.question === question) {
             return true;
         }
-        return (this.yes && this.yes.contains(question) ? true : false) ||
+        return (
+            (this.yes && this.yes.contains(question) ? true : false) ||
             (this.no && this.no.contains(question) ? true : false)
-        ;
+        );
     }
 }
 let myTree = new BinaryTree('You like Cricket');
 console.log(myTree);
 // myTree.traverse('Does cricket have 11 players per side. ', 'yes');
 myTree.traverse(console.log);
+
+//..
+//....
+//......
+//........
+//?Tree Traversals Typs
+
+//*1.Pre-Order
+// root, left, right
+function preOrder(node, func = console.log) {
+    func(node);
+
+    if (node.left) {
+        node.left.preOrder(func);
+    }
+
+    if (node.right) {
+        node.right.preOrder(func);
+    }
+}
+
+// left, right, root
+//*2.Post-Order
+function postOrder(node, func = console.log) {
+    if (node.left) {
+        node.left.postOrder(func);
+    }
+
+    if (node.right) {
+        node.right.postOrder(func);
+    }
+
+    func(node);
+}
+
+//*0.In-Order
+// left, root, right
+function inOrder(node, func = console.log) {
+    if (node.left) {
+        node.left.inOrder(func);
+    }
+
+    func(node);
+
+    if (node.right) {
+        node.right.inOrder(func);
+    }
+}
